@@ -17,7 +17,7 @@ public class ProductService {
    }
     public boolean hasProduct(String productName){
        for (Product product:products){
-           if(product!=null||product.getName().equals(productName)){
+           if(product!=null&&product.getName().equals(productName)){
                return true;
            }
        }
