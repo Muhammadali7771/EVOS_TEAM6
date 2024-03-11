@@ -24,5 +24,20 @@ public class ProductService {
         return false;
     }
 
+public  Product[] getProducts(){
+       return products;
+    }
 
+    public void deleteProduct(UUID id){
+        for (int i = 0; i <index ; i++) {
+            if(products[i]!=null&&products[i].getId().equals(id)){
+                for (int j = i; j <index-1 ; j++) {
+                    products[j]=products[j+1];
+                }
+                products[index-1]=null;
+                index--;
+                return;
+            }
+        }
+    }
 }
