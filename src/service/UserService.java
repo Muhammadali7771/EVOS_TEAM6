@@ -23,4 +23,19 @@ public class UserService {
         return false;
     }
 
+    public User login(String userName) {
+        for (User user : users) {
+            if (user != null && user.getUsername().equals(userName)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User[] getUsers() {
+        return users;
+    }
+
+
 }
+
