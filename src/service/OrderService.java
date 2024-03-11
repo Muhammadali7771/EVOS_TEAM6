@@ -9,7 +9,7 @@ public class OrderService {
     private int index = 0;
 
     public void addOrder(Order order, UUID userId){
-        order.setProductId(userId);
+        order.setUserId(userId);
         orders[index++] = order;
     }
 }
