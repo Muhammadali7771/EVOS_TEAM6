@@ -24,7 +24,7 @@ public class OrderService {
     public Order[] getHistoryById(UUID userId){
         int count = 0;
         for (Order order : orders){
-            if (order!=null && order.getUserId().equals(userId)){
+            if (order!=null && order.getUserId().equals(userId) && order.isCompeted()){
                 count++;
             }
         }
@@ -32,7 +32,7 @@ public class OrderService {
         Order[] orders1 = new Order[count];
         int userIndex = 0;
         for (Order order : orders){
-            if (order!=null && order.getUserId().equals(userId)){
+            if (order!=null && order.getUserId().equals(userId) && order.isCompeted()){
                 orders1[userIndex++] = order;
             }
         }
