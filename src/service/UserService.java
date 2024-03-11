@@ -2,6 +2,8 @@ package service;
 
 import model.User;
 
+import java.util.UUID;
+
 public class UserService {
     private User[] users = new User[100];
     private int index = 0;
@@ -34,6 +36,19 @@ public class UserService {
 
     public User[] getUsers() {
         return users;
+    }
+
+    public void deleteUser(UUID userId) {
+        for (int i = 0; i < index; i++) {
+            if (users[i] != null && users[i].getId().equals(userId)) {
+                for (int j = i; j < index - 1; j++) {
+                    users[j] = users[j + 1];
+                }
+                users[index - 1] = null;
+                index--;
+                return;
+            }
+        }
     }
 
 
