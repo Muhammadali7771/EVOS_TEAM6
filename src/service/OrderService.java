@@ -20,4 +20,22 @@ public class OrderService {
             }
         }
     }
+
+    public Order[] getHistoryById(UUID userId){
+        int count = 0;
+        for (Order order : orders){
+            if (order!=null && order.getUserId().equals(userId)){
+                count++;
+            }
+        }
+
+        Order[] orders1 = new Order[count];
+        int userIndex = 0;
+        for (Order order : orders){
+            if (order!=null && order.getUserId().equals(userId)){
+                orders1[userIndex++] = order;
+            }
+        }
+        return orders1;
+    }
 }
