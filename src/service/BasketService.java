@@ -26,5 +26,12 @@ public class BasketService {
         }
         return myBasket;
     }
+    public void clearBasket(UUID userId){
+        for (int i=0; i < index; i++){
+            if (baskets[i] != null && baskets[i].getUserId().equals(userId) && baskets[i].isActive()){
+                baskets[i].setActive(false);
+            }
+        }
+    }
 
 }
