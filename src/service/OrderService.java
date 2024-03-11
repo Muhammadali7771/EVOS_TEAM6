@@ -12,4 +12,12 @@ public class OrderService {
         order.setUserId(userId);
         orders[index++] = order;
     }
+
+    public void payOrder(UUID userId){
+        for (Order order : orders){
+            if (order!=null && order.getUserId().equals(userId)){
+                order.setCompeted(true);
+            }
+        }
+    }
 }
