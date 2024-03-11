@@ -7,20 +7,11 @@ public class UserService {
     private int index = 0;
 
     public boolean addUser(User user) {
-        if (user == null) {
-            return false; // Cannot add null user
-        }
-
         if (!hasUser(user.getUsername())) {
-            if (index < users.length) {
-                users[index++] = user;
-                return true;
-            } else {
-                return false; // Array is full
-            }
-        } else {
-            return false; // User already exists
+            users[index++] = user;
+            return true;
         }
+        return false;
     }
 
     private boolean hasUser(String userName) {
