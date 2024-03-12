@@ -21,7 +21,7 @@ public class OrderService {
         }
     }
 
-    public Order[] getHistoryById(UUID userId){
+    public Order[] getHistoryByUserId(UUID userId){
         int count = 0;
         for (Order order : orders){
             if (order!=null && order.getUserId().equals(userId) && order.isCompeted()){
