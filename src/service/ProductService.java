@@ -1,5 +1,6 @@
 package service;
 
+import model.Category;
 import model.Product;
 
 import java.util.UUID;
@@ -39,5 +40,39 @@ public  Product[] getProducts(){
                 return;
             }
         }
+    }
+
+    public void updateProduct(UUID id, String name, double price){
+        Product existingProduct = getProductById(id);
+        if (existingProduct != null){
+            existingProduct.setName(name);
+            existingProduct.setPrice(price);
+        }
+    }
+
+    public Product getProductById(UUID id){
+       for (Product product : products){
+           if (product != null && product.getId().equals(id)){
+               return product;
+           }
+       }
+       return null;
+    }
+
+    public Product[] getProductsByCategoryId(UUID categoryId){
+       int count = 0;
+       for (Product product : products){
+           if (product != null && product.getCategoryId().equals(categoryId)){
+               count++;
+           }
+       }
+       Product[] products1 = new Product[count];
+       int index1 = 0;
+       for (Product product : products){
+            if (product != null && product.getCategoryId().equals(categoryId)){
+                products1[index1++] = product;
+            }
+       }
+       return products1;
     }
 }
