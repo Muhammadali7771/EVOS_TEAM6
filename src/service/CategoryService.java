@@ -27,7 +27,7 @@ public class CategoryService {
     public Category[] getCategories() {
         return categories;
     }
-    private Category getCategoryById(UUID id) {
+    public Category getCategoryById(UUID id) {
         for (Category category : categories) {
             if (category != null && category.getId().equals(id)) {
                 return category;
@@ -36,4 +36,23 @@ public class CategoryService {
         return null;
     }
 
+    public void deleteCategory(UUID id){
+        for (int i=0; i < categories.length; i++){
+            if (categories[i] != null && categories[i].getId().equals(id)){
+                for (int j = i; j < index - 1; j++){
+                    categories[j] = categories[j+1];
+                }
+                categories[index - 1] = null;
+                index--;
+                return;
+            }
+        }
+    }
+
+    public void updateCategory(UUID id, String name){
+        Category existingCategory = getCategoryById(id);
+        if (existingCategory != null){
+            existingCategory.setName(name);
+        }
+    }
 }
