@@ -1,6 +1,5 @@
 package service;
 
-import model.Category;
 import model.Product;
 
 import java.util.UUID;
