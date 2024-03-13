@@ -99,7 +99,7 @@ public class Main {
                         switch (option4){
                             case 1 -> {
                                 Category category = new Category();
-                                System.out.println("Enter name");
+                                System.out.println("Enter name : ");
                                 category.setName(scannerStr.nextLine());
                                 if (categoryService.addCategory(category)) {
                                     System.out.println("Successfully");
@@ -115,7 +115,7 @@ public class Main {
                                 categoryService.deleteCategory(UUID.fromString(Id));
                             }
                             case 3 -> {
-                                Category[] categories =  categoryService.getCategories();
+                                Category[] categories = categoryService.getCategories();
                                 printCategories(categories);
                                 System.out.println("Enter id :");
                                 String Id = scannerStr.nextLine();
@@ -166,7 +166,7 @@ public class Main {
                                 String productId = scannerStr.nextLine();
                                 System.out.println("Enter new name : ");
                                 String name = scannerStr.nextLine();
-                                System.out.println("Enter price : ");
+                                System.out.println("Enter new price : ");
                                 double price = scannerInt.nextDouble();
                                 productService.updateProduct(UUID.fromString(productId), name, price);
                             }
